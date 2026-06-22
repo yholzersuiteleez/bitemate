@@ -3,8 +3,80 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Bitemate — The world is full of good food.</title>
-<meta name="description" content="Spin the globe. Tap a country. Cook what people are actually making — shared by the people who live there. Bitemate is the home for the world's home cooks." />
+<title>Bitemate — Discover World Recipes &amp; Home Cooking, by Country</title>
+<meta name="description" content="Spin a 3D globe, tap any country, and cook what local home cooks are actually making. Bitemate is the global recipe app and social platform for the world's home cooks — 195 countries, real dishes, no algorithm. Join the waitlist for iOS &amp; Android." />
+<meta name="keywords" content="world recipes app, home cooking app, international recipes by country, global recipe social app, discover recipes, authentic recipes, recipe globe, cook the world" />
+<meta name="author" content="Bitemate" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#1C1C1E" media="(prefers-color-scheme: dark)" />
+<link rel="canonical" href="https://bitemate.io/" />
+
+<!-- Favicon (inline SVG, zero requests) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23007AFF'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M1 16h30M16 1a20 20 0 0 1 0 30M16 1a20 20 0 0 0 0 30' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" href="/icon-180.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Bitemate" />
+<meta property="og:title" content="Bitemate — Discover World Recipes &amp; Home Cooking, by Country" />
+<meta property="og:description" content="Spin the globe. Tap a country. Cook what people are actually making — shared by the people who live there. The home for the world's home cooks." />
+<meta property="og:url" content="https://bitemate.io/" />
+<meta property="og:image" content="https://bitemate.io/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Bitemate — a glowing globe of recipe pins from around the world" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bitemate — Discover World Recipes &amp; Home Cooking, by Country" />
+<meta name="twitter:description" content="Spin the globe. Tap a country. Cook what the world's home cooks are actually making." />
+<meta name="twitter:image" content="https://bitemate.io/og-image.png" />
+
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bitemate.io/#org",
+      "name": "Bitemate",
+      "url": "https://bitemate.io/",
+      "logo": "https://bitemate.io/og-image.png",
+      "description": "The global recipe discovery and social platform for the world's home cooks.",
+      "email": "hello@bitemate.io",
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bitemate.io/#website",
+      "url": "https://bitemate.io/",
+      "name": "Bitemate",
+      "publisher": { "@id": "https://bitemate.io/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://bitemate.io/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://bitemate.io/#app",
+      "name": "Bitemate",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "LifestyleApplication",
+      "description": "Spin a 3D globe, tap any country, and cook what local home cooks are actually making. Share a dish photo and AI auto-fills the recipe. 195 countries, real food, no algorithm.",
+      "url": "https://bitemate.io/",
+      "publisher": { "@id": "https://bitemate.io/#org" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  ]
+}
+</script>
 
 <style>
 /* ---------- Design tokens (v1.1) ---------- */
@@ -299,6 +371,12 @@ img{display:block;max-width:100%}
 .bg-it{background:linear-gradient(135deg,#FFFBE0,#FFE38A)}
 .bg-in{background:linear-gradient(135deg,#FFE7D6,#FFBA8F)}
 .bg-mx{background:linear-gradient(135deg,#FFF0DD,#FFCB7A)}
+.bg-th{background:linear-gradient(135deg,#FFF3F8,#FFC1DD)}
+.bg-kr{background:linear-gradient(135deg,#FFF0EE,#FFB3A8)}
+.bg-ma{background:linear-gradient(135deg,#FFF6E6,#FFD98A)}
+.bg-fr{background:linear-gradient(135deg,#F2F0FF,#C7BEFF)}
+.bg-vn{background:linear-gradient(135deg,#EEFBF1,#9FE8B5)}
+.bg-gr{background:linear-gradient(135deg,#EAF5FF,#A9D6FF)}
 @media (prefers-color-scheme: dark){
   .bg-jp{background:linear-gradient(135deg,#3a1f22,#5a2b2f)}
   .bg-ng{background:linear-gradient(135deg,#3a2914,#5a3a1a)}
@@ -306,6 +384,12 @@ img{display:block;max-width:100%}
   .bg-it{background:linear-gradient(135deg,#3a3414,#5a4a1a)}
   .bg-in{background:linear-gradient(135deg,#3a2014,#5a3020)}
   .bg-mx{background:linear-gradient(135deg,#3a2a14,#5a3a1a)}
+  .bg-th{background:linear-gradient(135deg,#3a1f2c,#5a2b40)}
+  .bg-kr{background:linear-gradient(135deg,#3a201c,#5a2e28)}
+  .bg-ma{background:linear-gradient(135deg,#3a3014,#5a4820)}
+  .bg-fr{background:linear-gradient(135deg,#211f3a,#332e5a)}
+  .bg-vn{background:linear-gradient(135deg,#143a22,#1f5a36)}
+  .bg-gr{background:linear-gradient(135deg,#14283a,#1f4060)}
 }
 
 /* ---------- One table ---------- */
@@ -409,6 +493,46 @@ img{display:block;max-width:100%}
   z-index:-1;
   pointer-events:none;
 }
+
+/* ---------- Offerings / features ---------- */
+.feature-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+@media (max-width:780px){ .feature-grid{grid-template-columns:1fr; gap:12px} }
+.feature{
+  background:var(--bg); border:0.5px solid var(--separator);
+  border-radius:var(--r-xl); padding:26px 28px; box-shadow:var(--shadow-md);
+  display:flex; gap:18px; align-items:flex-start;
+}
+.feature-emoji{font-size:34px; line-height:1; flex:0 0 auto}
+.feature h3{margin:0 0 6px; font-family:var(--font-display); font-weight:600; font-size:20px; line-height:26px}
+.feature p{margin:0 0 8px; color:var(--label-2); font-size:16px; line-height:23px}
+.feature .tag{display:inline-block; font-size:11px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--blue); background:var(--blue-tint); padding:3px 9px; border-radius:var(--r-pill)}
+.feature .tag.soon{color:var(--orange); background:rgba(255,149,0,0.12)}
+
+/* ---------- Explore by country ---------- */
+.country-section{background:var(--bg-2); border-top:0.5px solid var(--separator); border-bottom:0.5px solid var(--separator)}
+.country-links{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px}
+.country-chip{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--bg); border:0.5px solid var(--separator);
+  border-radius:var(--r-pill); padding:9px 16px;
+  font-size:15px; font-weight:600; color:var(--label);
+  box-shadow:var(--shadow-sm); transition:transform .1s ease;
+}
+.country-chip:hover{text-decoration:none; transform:translateY(-1px); color:var(--label)}
+.country-chip .flag{font-size:17px}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:760px; margin:32px auto 0; display:grid; gap:0; border-top:0.5px solid var(--separator)}
+.faq-item{border-bottom:0.5px solid var(--separator)}
+.faq-item summary{
+  cursor:pointer; list-style:none; padding:20px 4px;
+  font-family:var(--font-display); font-weight:600; font-size:19px; line-height:25px; color:var(--label);
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+"; color:var(--blue); font-family:var(--font); font-weight:400; font-size:24px; flex:0 0 auto}
+.faq-item[open] summary::after{content:"–"}
+.faq-item p{margin:0 4px 20px; color:var(--label-2); font-size:16px; line-height:24px; max-width:680px}
 
 /* Honor reduced motion */
 @media (prefers-reduced-motion: reduce){
@@ -519,7 +643,7 @@ img{display:block;max-width:100%}
     <div class="stories-head">
       <div>
         <span class="t-badge" style="margin-bottom:8px; display:inline-block">On the map today</span>
-        <h2 class="t-title1">Six dishes. <span style="color:var(--label-3)">Six kitchens. Same planet.</span></h2>
+        <h2 class="t-title1">Twelve dishes. <span style="color:var(--label-3)">Twelve kitchens. Same planet.</span></h2>
       </div>
       <a class="btn btn-tint" href="#waitlist">See more on the app</a>
     </div>
@@ -582,6 +706,66 @@ img{display:block;max-width:100%}
           <h3 class="card-title">Tacos al pastor</h3>
           <p class="card-meta">Carlos · CDMX</p>
           <div class="card-row"><span class="card-score">9.3</span><span class="card-saves">4,491 saves</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img bg-th"><span aria-hidden="true">🍜</span>
+          <div class="card-pin"><span class="dot"></span> Thailand · ไทย</div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Pad thai</h3>
+          <p class="card-meta">Nong · Bangkok</p>
+          <div class="card-row"><span class="card-score">9.0</span><span class="card-saves">3,602 saves</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img bg-kr"><span aria-hidden="true">🍲</span>
+          <div class="card-pin"><span class="dot"></span> South Korea · 한국</div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Kimchi jjigae</h3>
+          <p class="card-meta">Jiwoo · Seoul</p>
+          <div class="card-row"><span class="card-score">9.1</span><span class="card-saves">2,955 saves</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img bg-vn"><span aria-hidden="true">🍜</span>
+          <div class="card-pin"><span class="dot"></span> Vietnam · Việt Nam</div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Phở bò</h3>
+          <p class="card-meta">Mai · Hanoi</p>
+          <div class="card-row"><span class="card-score">9.4</span><span class="card-saves">4,118 saves</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img bg-ma"><span aria-hidden="true">🍲</span>
+          <div class="card-pin"><span class="dot"></span> Morocco · المغرب</div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Lamb tagine</h3>
+          <p class="card-meta">Yasmine · Marrakech</p>
+          <div class="card-row"><span class="card-score">9.2</span><span class="card-saves">2,231 saves</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img bg-gr"><span aria-hidden="true">🥘</span>
+          <div class="card-pin"><span class="dot"></span> Greece · Ελλάδα</div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Moussaka</h3>
+          <p class="card-meta">Eleni · Athens</p>
+          <div class="card-row"><span class="card-score">8.8</span><span class="card-saves">1,747 saves</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img bg-fr"><span aria-hidden="true">🍆</span>
+          <div class="card-pin"><span class="dot"></span> France · France</div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Ratatouille</h3>
+          <p class="card-meta">Camille · Nice</p>
+          <div class="card-row"><span class="card-score">9.0</span><span class="card-saves">2,640 saves</span></div>
         </div>
       </article>
     </div>
@@ -649,6 +833,105 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
+<!-- =================== OFFERINGS =================== -->
+<section id="offerings" class="section">
+  <div class="wrap">
+    <div class="pillars-head">
+      <span class="t-badge">The platform</span>
+      <h2 class="t-title1">More than a recipe app. <span style="color:var(--label-3)">A home for everything home cooking.</span></h2>
+    </div>
+    <div class="feature-grid">
+      <article class="feature">
+        <div class="feature-emoji" aria-hidden="true">🌍</div>
+        <div>
+          <span class="tag">Live</span>
+          <h3>The Globe</h3>
+          <p>A 3D, spinnable globe of all 195 countries. Tap any one to see real recipes pinned by the people who live there — geography as the index, not an algorithm.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <div class="feature-emoji" aria-hidden="true">📸</div>
+        <div>
+          <span class="tag">Live</span>
+          <h3>AI Recipe Capture</h3>
+          <p>Snap a photo of your dish. Bitemate's AI reads the image and auto-fills the country, ingredients, and dish name — you just confirm what it's called at home.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <div class="feature-emoji" aria-hidden="true">🛒</div>
+        <div>
+          <span class="tag soon">Coming soon</span>
+          <h3>The Market</h3>
+          <p>Shop the exact ingredients behind any recipe, sourced for your region — with a 5% take rate where delivery apps charge up to 30%. Fair to cooks, fair to shoppers.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <div class="feature-emoji" aria-hidden="true">🎥</div>
+        <div>
+          <span class="tag soon">Coming soon</span>
+          <h3>Live Classes &amp; Creator Payouts</h3>
+          <p>Learn a dish live from the home cook who shared it, and let home cooks — not just chefs with cameras — earn from the food they love to make.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================== EXPLORE BY COUNTRY =================== -->
+<section id="explore" class="section country-section">
+  <div class="wrap">
+    <span class="t-badge">Explore by country</span>
+    <h2 class="t-title1" style="margin-top:8px; max-width:760px">Start with a country. <span style="color:var(--label-3)">Find the home cooking that defines it.</span></h2>
+    <p style="color:var(--label-2); font-size:18px; line-height:28px; max-width:620px; margin:14px 0 0">Every country on Bitemate is a doorway into its real, everyday food — the dishes families actually make, not the tourist menu. Pick one to start.</p>
+    <nav class="country-links" aria-label="Explore recipes by country">
+      <a class="country-chip" href="/japan/"><span class="flag" aria-hidden="true">🇯🇵</span> Japan</a>
+      <a class="country-chip" href="/italy/"><span class="flag" aria-hidden="true">🇮🇹</span> Italy</a>
+      <a class="country-chip" href="/india/"><span class="flag" aria-hidden="true">🇮🇳</span> India</a>
+      <a class="country-chip" href="/mexico/"><span class="flag" aria-hidden="true">🇲🇽</span> Mexico</a>
+      <a class="country-chip" href="/thailand/"><span class="flag" aria-hidden="true">🇹🇭</span> Thailand</a>
+      <a class="country-chip" href="/south-korea/"><span class="flag" aria-hidden="true">🇰🇷</span> South Korea</a>
+      <a class="country-chip" href="/vietnam/"><span class="flag" aria-hidden="true">🇻🇳</span> Vietnam</a>
+      <a class="country-chip" href="/nigeria/"><span class="flag" aria-hidden="true">🇳🇬</span> Nigeria</a>
+      <a class="country-chip" href="/peru/"><span class="flag" aria-hidden="true">🇵🇪</span> Peru</a>
+      <a class="country-chip" href="/morocco/"><span class="flag" aria-hidden="true">🇲🇦</span> Morocco</a>
+      <a class="country-chip" href="/greece/"><span class="flag" aria-hidden="true">🇬🇷</span> Greece</a>
+      <a class="country-chip" href="/france/"><span class="flag" aria-hidden="true">🇫🇷</span> France</a>
+    </nav>
+  </div>
+</section>
+
+<!-- =================== FAQ =================== -->
+<section id="faq" class="section">
+  <div class="wrap">
+    <div class="pillars-head">
+      <span class="t-badge">FAQ</span>
+      <h2 class="t-title1">Questions, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>What is Bitemate?</summary>
+        <p>Bitemate is a global recipe-discovery and social app for home cooks. You spin a 3D globe, tap any country, and see the real dishes people there are actually cooking — shared by the locals who make them. It's built for iOS and Android.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is it different from other recipe apps?</summary>
+        <p>Most recipe apps organize food by trend or algorithm. Bitemate organizes it by <em>place</em> — every dish stays attached to the country and the person it came from. No orphaned recipes, no "exotic" labels, just authentic home cooking with its passport intact.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I add my own recipe?</summary>
+        <p>Take a photo of your dish. Bitemate's AI reads the image and auto-fills the country, ingredients, and dish name — you confirm what it's really called at home, and it lands as a pin on the globe for the world to find.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is Bitemate free?</summary>
+        <p>Yes — discovering, sharing, and saving recipes is free. A Market for shopping recipe ingredients and live cooking classes are coming, with a creator-friendly 5% take rate.</p>
+      </details>
+      <details class="faq-item">
+        <summary>When can I use it?</summary>
+        <p>The beta opens to waitlist members first, country by country. Join the waitlist and tell us where you're cooking from to get early access.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- =================== INVESTOR STRIP =================== -->
 <section id="investors" class="section-tight">
   <div class="wrap">
@@ -659,7 +942,7 @@ img{display:block;max-width:100%}
         <p>We're building the consumer side first: the globe, the share flow, the feed. The commerce layer follows — ingredients, classes, and creator payouts, on terms that actually work for home cooks.</p>
       </div>
       <div class="right">
-        <a class="btn btn-primary btn-lg" href="mailto:invest@bitemate.app?subject=Investor%20intro">Request the deck</a>
+        <a class="btn btn-primary btn-lg" href="mailto:invest@bitemate.io?subject=Investor%20intro">Request the deck</a>
         <a class="btn btn-tint" href="#mission">Read the mission</a>
         <div class="t-foot" style="margin-top:6px">Pre-seed · raising later this year</div>
       </div>
@@ -689,15 +972,45 @@ img{display:block;max-width:100%}
       <a href="#how">How it works</a>
       <a href="#mission">Mission</a>
       <a href="#investors">Investors</a>
-      <a href="mailto:hello@bitemate.app">Contact</a>
+      <a href="mailto:hello@bitemate.io">Contact</a>
     </div>
   </div>
 </footer>
 
+<!-- =================== STRUCTURED DATA: recipes + FAQ =================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Popular home-cooked dishes on Bitemate",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"item":{"@type":"Recipe","name":"Onigiri","recipeCuisine":"Japanese","author":{"@type":"Person","name":"Akiko"},"url":"https://bitemate.io/japan/","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.1","bestRating":"10","ratingCount":"2341"}}},
+    {"@type":"ListItem","position":2,"item":{"@type":"Recipe","name":"Jollof rice","recipeCuisine":"Nigerian","author":{"@type":"Person","name":"Tunde"},"url":"https://bitemate.io/nigeria/","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.4","bestRating":"10","ratingCount":"5012"}}},
+    {"@type":"ListItem","position":3,"item":{"@type":"Recipe","name":"Ceviche","recipeCuisine":"Peruvian","author":{"@type":"Person","name":"Lucía"},"url":"https://bitemate.io/peru/","aggregateRating":{"@type":"AggregateRating","ratingValue":"8.9","bestRating":"10","ratingCount":"1884"}}},
+    {"@type":"ListItem","position":4,"item":{"@type":"Recipe","name":"Cacio e pepe","recipeCuisine":"Italian","author":{"@type":"Person","name":"Marco"},"url":"https://bitemate.io/italy/","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.0","bestRating":"10","ratingCount":"3206"}}},
+    {"@type":"ListItem","position":5,"item":{"@type":"Recipe","name":"Dal makhani","recipeCuisine":"Indian","author":{"@type":"Person","name":"Priya"},"url":"https://bitemate.io/india/","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.2","bestRating":"10","ratingCount":"2768"}}},
+    {"@type":"ListItem","position":6,"item":{"@type":"Recipe","name":"Tacos al pastor","recipeCuisine":"Mexican","author":{"@type":"Person","name":"Carlos"},"url":"https://bitemate.io/mexico/","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.3","bestRating":"10","ratingCount":"4491"}}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is Bitemate?","acceptedAnswer":{"@type":"Answer","text":"Bitemate is a global recipe-discovery and social app for home cooks. You spin a 3D globe, tap any country, and see the real dishes people there are actually cooking — shared by the locals who make them. It's built for iOS and Android."}},
+    {"@type":"Question","name":"How is it different from other recipe apps?","acceptedAnswer":{"@type":"Answer","text":"Most recipe apps organize food by trend or algorithm. Bitemate organizes it by place — every dish stays attached to the country and the person it came from, so authentic home cooking keeps its origin."}},
+    {"@type":"Question","name":"How do I add my own recipe?","acceptedAnswer":{"@type":"Answer","text":"Take a photo of your dish. Bitemate's AI reads the image and auto-fills the country, ingredients, and dish name — you confirm what it's really called at home, and it lands as a pin on the globe."}},
+    {"@type":"Question","name":"Is Bitemate free?","acceptedAnswer":{"@type":"Answer","text":"Yes — discovering, sharing, and saving recipes is free. A Market for shopping recipe ingredients and live cooking classes are coming, with a creator-friendly 5% take rate."}},
+    {"@type":"Question","name":"When can I use it?","acceptedAnswer":{"@type":"Answer","text":"The beta opens to waitlist members first, country by country. Join the waitlist and tell us where you're cooking from to get early access."}}
+  ]
+}
+</script>
+
 <!-- =================== GLOBE =================== -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-(function(){
+function initBitemateGlobe(){
   const canvas = document.getElementById('globe');
   if(!canvas || !window.THREE) return;
 
@@ -916,7 +1229,13 @@ img{display:block;max-width:100%}
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
-})();
+}
+// Three.js is deferred, so wait for the DOM (deferred scripts run before DOMContentLoaded).
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', initBitemateGlobe);
+}else{
+  initBitemateGlobe();
+}
 </script>
 
 </body>
