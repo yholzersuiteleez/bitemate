@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://bitemate.io/" />
 
 <!-- Favicon (inline SVG, zero requests) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23007AFF'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M1 16h30M16 1a20 20 0 0 1 0 30M16 1a20 20 0 0 0 0 30' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23FF6A2C'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M1 16h30M16 1a20 20 0 0 1 0 30M16 1a20 20 0 0 0 0 30' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" />
 <link rel="apple-touch-icon" href="/icon-180.png" />
 
 <!-- Open Graph -->
@@ -81,9 +81,12 @@
 <style>
 /* ---------- Design tokens (v1.1) ---------- */
 :root{
-  --blue:#007AFF;
-  --blue-tint:rgba(0,122,255,0.10);
-  --blue-deep:#0055B3;
+  /* Warm flame accent — appetite + creativity. Charcoal/white base unchanged. */
+  --accent:#C2410C;                    /* deep flame: buttons, links, scores, active (5.1:1 on white) */
+  --accent-tint:rgba(226,88,34,0.10);  /* warm wash: chips, eyebrows, focus, tag fills */
+  --accent-deep:#9A330A;               /* pressed state on primary buttons */
+  --ember:#FF6A2C;                     /* bright glow: logo dot, globe pins, halo, hero aurora */
+  --on-accent:#FFFFFF;                 /* text/icon color that sits on an accent fill */
 
   --green:#34C759;
   --orange:#FF9500;
@@ -118,9 +121,12 @@
 
 @media (prefers-color-scheme: dark){
   :root{
-    --blue:#0A84FF;
-    --blue-tint:rgba(10,132,255,0.20);
-    --blue-deep:#0071E3;
+    /* Brighter flame on charcoal — accent carries dark (charcoal) text on buttons */
+    --accent:#FF9A5C;
+    --accent-tint:rgba(255,138,77,0.20);
+    --accent-deep:#FF8A4D;
+    --ember:#FF8A3D;
+    --on-accent:#1C1C1E;
 
     --green:#30D158;
     --orange:#FF9F0A;
@@ -156,7 +162,7 @@ body{
   -moz-osx-font-smoothing:grayscale;
   overflow-x:hidden;
 }
-a{color:var(--blue); text-decoration:none}
+a{color:var(--accent); text-decoration:none}
 a:hover{text-decoration:underline}
 img{display:block;max-width:100%}
 
@@ -173,7 +179,7 @@ img{display:block;max-width:100%}
 .t-sub{font-size:15px; line-height:20px; color:var(--label-2)}
 .t-foot{font-size:13px; line-height:18px; color:var(--label-3)}
 .t-cap{font-size:12px; line-height:16px; color:var(--label-3)}
-.t-badge{font-size:11px; line-height:13px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--blue)}
+.t-badge{font-size:11px; line-height:13px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent)}
 
 /* ---------- Layout ---------- */
 .wrap{max-width:1180px; margin:0 auto; padding:0 16px}
@@ -194,7 +200,7 @@ img{display:block;max-width:100%}
 }
 .nav-row{display:flex; align-items:center; justify-content:space-between; height:56px}
 .brand{display:flex; align-items:center; gap:8px; font-family:var(--font-display); font-weight:600; font-size:20px; color:var(--label)}
-.brand .dot{width:10px; height:10px; border-radius:50%; background:var(--blue); box-shadow:0 0 12px var(--blue-tint)}
+.brand .dot{width:10px; height:10px; border-radius:50%; background:var(--ember); box-shadow:0 0 14px rgba(255,106,44,0.55)}
 .nav-links{display:flex; gap:24px; align-items:center}
 .nav-links a{color:var(--label-2); font-size:15px}
 .nav-links a:hover{color:var(--label); text-decoration:none}
@@ -211,9 +217,9 @@ img{display:block;max-width:100%}
 }
 .btn:hover{text-decoration:none}
 .btn:active{transform:scale(0.97)}
-.btn-primary{background:var(--blue); color:#fff}
-.btn-primary:active{background:var(--blue-deep)}
-.btn-tint{background:var(--blue-tint); color:var(--blue)}
+.btn-primary{background:var(--accent); color:var(--on-accent)}
+.btn-primary:active{background:var(--accent-deep)}
+.btn-tint{background:var(--accent-tint); color:var(--accent)}
 .btn-gray{background:var(--bg-2); color:var(--label); border-color:var(--separator)}
 .btn-lg{padding:14px 26px; font-size:17px; border-radius:var(--r-md)}
 .btn-sm{padding:7px 14px; font-size:13px}
@@ -233,27 +239,27 @@ img{display:block;max-width:100%}
 
 .hero-eyebrow{
   display:inline-flex; align-items:center; gap:8px;
-  background:var(--blue-tint); color:var(--blue);
+  background:var(--accent-tint); color:var(--accent);
   padding:6px 12px; border-radius:var(--r-pill);
   font-size:12px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase;
   margin-bottom:20px;
 }
 .hero-eyebrow .pulse{
-  width:6px; height:6px; border-radius:50%; background:var(--blue);
-  box-shadow:0 0 0 0 var(--blue-tint);
+  width:6px; height:6px; border-radius:50%; background:var(--ember);
+  box-shadow:0 0 0 0 var(--accent-tint);
   animation:pulse 1.8s infinite;
 }
 @keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(0,122,255,0.55)}
-  70%{box-shadow:0 0 0 10px rgba(0,122,255,0)}
-  100%{box-shadow:0 0 0 0 rgba(0,122,255,0)}
+  0%{box-shadow:0 0 0 0 rgba(255,106,44,0.55)}
+  70%{box-shadow:0 0 0 10px rgba(255,106,44,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,106,44,0)}
 }
 .hero-headline{margin:0 0 20px 0}
 .hero-sub{margin:0 0 32px 0; max-width:560px; font-size:19px; line-height:28px; color:var(--label-2)}
 .hero-ctas{display:flex; gap:12px; flex-wrap:wrap}
 .hero-meta{display:flex; gap:24px; margin-top:32px; color:var(--label-3); font-size:13px; flex-wrap:wrap}
 .hero-meta span{display:inline-flex; align-items:center; gap:6px}
-.hero-meta .swatch{width:6px; height:6px; border-radius:50%; background:var(--blue)}
+.hero-meta .swatch{width:6px; height:6px; border-radius:50%; background:var(--ember)}
 
 /* ---------- Globe stage ---------- */
 .globe-stage{
@@ -280,7 +286,7 @@ img{display:block;max-width:100%}
   opacity:0; transform:translateY(4px);
   animation:tagIn .8s ease forwards;
 }
-.globe-tag .pin{width:6px; height:6px; border-radius:50%; background:var(--blue)}
+.globe-tag .pin{width:6px; height:6px; border-radius:50%; background:var(--ember)}
 @keyframes tagIn{ to{opacity:1; transform:translateY(0)} }
 .tag-1{top:14%; left:-6%; animation-delay:.6s}
 .tag-2{top:38%; right:-4%; animation-delay:1.0s}
@@ -312,10 +318,14 @@ img{display:block;max-width:100%}
   position:relative; overflow:hidden;
 }
 .pillar-icon{
-  width:44px; height:44px; border-radius:var(--r-md);
-  background:var(--blue-tint); color:var(--blue);
+  width:46px; height:46px; border-radius:var(--r-md);
+  /* A tile of the same material as the card, resting on the surface */
+  background:linear-gradient(180deg, var(--bg), var(--bg-2));
+  color:var(--accent);
   display:flex; align-items:center; justify-content:center;
-  margin-bottom:16px;
+  margin-bottom:18px;
+  border:0.5px solid var(--separator);
+  box-shadow:0 1px 1px rgba(0,0,0,0.04), 0 6px 14px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.75);
 }
 .pillar h3{margin:0 0 8px; font-family:var(--font-display); font-weight:600; font-size:22px; line-height:28px}
 .pillar p{margin:0; color:var(--label-2); font-size:16px; line-height:23px}
@@ -356,12 +366,12 @@ img{display:block;max-width:100%}
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
 }
-.card-pin .dot{width:6px; height:6px; border-radius:50%; background:var(--blue)}
+.card-pin .dot{width:6px; height:6px; border-radius:50%; background:var(--ember)}
 .card-body{padding:16px 18px 18px}
 .card-title{font-family:var(--font-display); font-weight:600; font-size:22px; line-height:28px; margin:0 0 4px}
 .card-meta{font-size:15px; line-height:20px; color:var(--label-3); margin:0}
 .card-row{display:flex; align-items:center; justify-content:space-between; margin-top:12px; padding-top:12px; border-top:0.5px solid var(--separator)}
-.card-score{color:var(--blue); font-weight:600; font-size:18px}
+.card-score{color:var(--accent); font-weight:600; font-size:18px}
 .card-saves{font-size:13px; color:var(--label-3)}
 
 /* Card art backgrounds (no external images) */
@@ -457,7 +467,7 @@ img{display:block;max-width:100%}
 /* ---------- Waitlist ---------- */
 .waitlist{
   text-align:center;
-  background:radial-gradient(1200px 600px at 50% 0%, var(--blue-tint), transparent 60%);
+  background:radial-gradient(1200px 600px at 50% 0%, var(--accent-tint), transparent 60%);
   border-top:0.5px solid var(--separator);
 }
 .waitlist .t-title1{margin:0 auto 12px; max-width:680px}
@@ -488,8 +498,8 @@ img{display:block;max-width:100%}
 .hero::before{
   content:""; position:absolute; inset:-10% -10% auto -10%; height:80%;
   background:
-    radial-gradient(600px 320px at 80% 20%, var(--blue-tint), transparent 70%),
-    radial-gradient(500px 280px at 10% 70%, rgba(90,200,250,0.12), transparent 70%);
+    radial-gradient(600px 320px at 80% 20%, var(--accent-tint), transparent 70%),
+    radial-gradient(520px 300px at 10% 70%, rgba(255,170,80,0.13), transparent 70%);
   z-index:-1;
   pointer-events:none;
 }
@@ -502,11 +512,29 @@ img{display:block;max-width:100%}
   border-radius:var(--r-xl); padding:26px 28px; box-shadow:var(--shadow-md);
   display:flex; gap:18px; align-items:flex-start;
 }
-.feature-emoji{font-size:34px; line-height:1; flex:0 0 auto}
+.feature-emoji{
+  font-size:26px; line-height:1; flex:0 0 auto;
+  width:52px; height:52px; border-radius:var(--r-md);
+  display:flex; align-items:center; justify-content:center;
+  /* Same laid-on-surface tile as the pillar icons */
+  background:linear-gradient(180deg, var(--bg), var(--bg-2));
+  border:0.5px solid var(--separator);
+  box-shadow:0 1px 1px rgba(0,0,0,0.04), 0 6px 14px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.75);
+}
 .feature h3{margin:0 0 6px; font-family:var(--font-display); font-weight:600; font-size:20px; line-height:26px}
+
+/* Dark mode: no shadows, so lift the tiles with a lighter surface instead */
+@media (prefers-color-scheme: dark){
+  .pillar-icon, .feature-emoji{
+    background:linear-gradient(180deg, var(--bg-3), var(--bg-2));
+    border-color:rgba(255,255,255,0.10);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .pillar-icon{ color:var(--ember); }
+}
 .feature p{margin:0 0 8px; color:var(--label-2); font-size:16px; line-height:23px}
-.feature .tag{display:inline-block; font-size:11px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--blue); background:var(--blue-tint); padding:3px 9px; border-radius:var(--r-pill)}
-.feature .tag.soon{color:var(--orange); background:rgba(255,149,0,0.12)}
+.feature .tag{display:inline-block; font-size:11px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); background:var(--accent-tint); padding:3px 9px; border-radius:var(--r-pill)}
+.feature .tag.soon{color:var(--label-3); background:var(--bg-3)}
 
 /* ---------- Explore by country ---------- */
 .country-section{background:var(--bg-2); border-top:0.5px solid var(--separator); border-bottom:0.5px solid var(--separator)}
@@ -530,7 +558,7 @@ img{display:block;max-width:100%}
   display:flex; justify-content:space-between; align-items:center; gap:16px;
 }
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:"+"; color:var(--blue); font-family:var(--font); font-weight:400; font-size:24px; flex:0 0 auto}
+.faq-item summary::after{content:"+"; color:var(--accent); font-family:var(--font); font-weight:400; font-size:24px; flex:0 0 auto}
 .faq-item[open] summary::after{content:"–"}
 .faq-item p{margin:0 4px 20px; color:var(--label-2); font-size:16px; line-height:24px; max-width:680px}
 
@@ -643,7 +671,7 @@ img{display:block;max-width:100%}
     <div class="stories-head">
       <div>
         <span class="t-badge" style="margin-bottom:8px; display:inline-block">On the map today</span>
-        <h2 class="t-title1">Twelve dishes. <span style="color:var(--label-3)">Twelve kitchens. Same planet.</span></h2>
+        <h2 class="t-title1">Six dishes. <span style="color:var(--label-3)">Six kitchens. Same planet.</span></h2>
       </div>
       <a class="btn btn-tint" href="#waitlist">See more on the app</a>
     </div>
@@ -689,16 +717,6 @@ img{display:block;max-width:100%}
         </div>
       </article>
       <article class="card">
-        <div class="card-img bg-in"><span aria-hidden="true">🍛</span>
-          <div class="card-pin"><span class="dot"></span> India · भारत</div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Dal makhani</h3>
-          <p class="card-meta">Priya · Delhi</p>
-          <div class="card-row"><span class="card-score">9.2</span><span class="card-saves">2,768 saves</span></div>
-        </div>
-      </article>
-      <article class="card">
         <div class="card-img bg-mx"><span aria-hidden="true">🌮</span>
           <div class="card-pin"><span class="dot"></span> Mexico · México</div>
         </div>
@@ -706,16 +724,6 @@ img{display:block;max-width:100%}
           <h3 class="card-title">Tacos al pastor</h3>
           <p class="card-meta">Carlos · CDMX</p>
           <div class="card-row"><span class="card-score">9.3</span><span class="card-saves">4,491 saves</span></div>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card-img bg-th"><span aria-hidden="true">🍜</span>
-          <div class="card-pin"><span class="dot"></span> Thailand · ไทย</div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Pad thai</h3>
-          <p class="card-meta">Nong · Bangkok</p>
-          <div class="card-row"><span class="card-score">9.0</span><span class="card-saves">3,602 saves</span></div>
         </div>
       </article>
       <article class="card">
@@ -728,58 +736,19 @@ img{display:block;max-width:100%}
           <div class="card-row"><span class="card-score">9.1</span><span class="card-saves">2,955 saves</span></div>
         </div>
       </article>
-      <article class="card">
-        <div class="card-img bg-vn"><span aria-hidden="true">🍜</span>
-          <div class="card-pin"><span class="dot"></span> Vietnam · Việt Nam</div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Phở bò</h3>
-          <p class="card-meta">Mai · Hanoi</p>
-          <div class="card-row"><span class="card-score">9.4</span><span class="card-saves">4,118 saves</span></div>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card-img bg-ma"><span aria-hidden="true">🍲</span>
-          <div class="card-pin"><span class="dot"></span> Morocco · المغرب</div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Lamb tagine</h3>
-          <p class="card-meta">Yasmine · Marrakech</p>
-          <div class="card-row"><span class="card-score">9.2</span><span class="card-saves">2,231 saves</span></div>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card-img bg-gr"><span aria-hidden="true">🥘</span>
-          <div class="card-pin"><span class="dot"></span> Greece · Ελλάδα</div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Moussaka</h3>
-          <p class="card-meta">Eleni · Athens</p>
-          <div class="card-row"><span class="card-score">8.8</span><span class="card-saves">1,747 saves</span></div>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card-img bg-fr"><span aria-hidden="true">🍆</span>
-          <div class="card-pin"><span class="dot"></span> France · France</div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Ratatouille</h3>
-          <p class="card-meta">Camille · Nice</p>
-          <div class="card-row"><span class="card-score">9.0</span><span class="card-saves">2,640 saves</span></div>
-        </div>
-      </article>
     </div>
   </div>
 </section>
 
 <!-- =================== ONE TABLE =================== -->
 <section class="section table-section">
-  <div class="wrap table-grid">
+  <div class="wrap">
+    <div class="table-grid">
     <div>
       <span class="t-badge">Why it matters</span>
-      <h2 class="t-title1" style="margin-top:8px">Food is the original universal language.</h2>
-      <p>Every country has a way of saying <em class="ny">welcome</em> through dinner. The internet flattened a lot of things. It shouldn't flatten this.</p>
-      <p>Bitemate is built so that someone in Lagos, Seoul, or São Paulo feels equally at home — and so the recipe stays attached to the place it came from. No more orphaned dishes. No more "exotic" labels. Just food, with its passport intact.</p>
+      <h2 class="t-title1" style="margin-top:8px">Food is the original universal language. <span style="color:var(--label-3)">Nobody's built it a home — until now.</span></h2>
+      <p>Every country has a way of saying <em class="ny">welcome</em> through dinner — but that food is scattered across video apps, blogs, and screenshots buried in Notes, and the dish gets cut off from the place it came from.</p>
+      <p>Bitemate organizes food by where it actually lives, so someone in Lagos, Seoul, or São Paulo feels equally at home — and gives the creator economy to home cooks, not just chefs with cameras. No orphaned dishes. Just food, with its passport intact.</p>
     </div>
     <div class="table-stack" aria-label="Recent activity on the globe">
       <div class="bubble">
@@ -815,16 +784,8 @@ img{display:block;max-width:100%}
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- =================== WHY / STATS =================== -->
-<section class="section why">
-  <div class="wrap">
-    <span class="t-badge">The opportunity</span>
-    <h2 class="t-title1" style="margin-top:8px">Home cooking is the most-watched category online. <span style="color:var(--label-3)">Nobody has built a home for it.</span></h2>
-    <p>Recipe content is fragmented across video apps, blogs, and screenshots in Notes. The connection between a dish and the place it came from gets lost. Bitemate organises food by where it actually lives — and gives a creator economy to home cooks, not just chefs with cameras.</p>
-    <div class="stats">
+    </div>
+    <div class="stats" style="margin-top:56px">
       <div class="stat"><div class="stat-num">195</div><div class="stat-label">countries on the globe</div></div>
       <div class="stat"><div class="stat-num">5,000+</div><div class="stat-label">distinct cuisines tracked</div></div>
       <div class="stat"><div class="stat-num">5B</div><div class="stat-label">home cooks worldwide</div></div>
@@ -890,12 +851,8 @@ img{display:block;max-width:100%}
       <a class="country-chip" href="/mexico/"><span class="flag" aria-hidden="true">🇲🇽</span> Mexico</a>
       <a class="country-chip" href="/thailand/"><span class="flag" aria-hidden="true">🇹🇭</span> Thailand</a>
       <a class="country-chip" href="/south-korea/"><span class="flag" aria-hidden="true">🇰🇷</span> South Korea</a>
-      <a class="country-chip" href="/vietnam/"><span class="flag" aria-hidden="true">🇻🇳</span> Vietnam</a>
       <a class="country-chip" href="/nigeria/"><span class="flag" aria-hidden="true">🇳🇬</span> Nigeria</a>
       <a class="country-chip" href="/peru/"><span class="flag" aria-hidden="true">🇵🇪</span> Peru</a>
-      <a class="country-chip" href="/morocco/"><span class="flag" aria-hidden="true">🇲🇦</span> Morocco</a>
-      <a class="country-chip" href="/greece/"><span class="flag" aria-hidden="true">🇬🇷</span> Greece</a>
-      <a class="country-chip" href="/france/"><span class="flag" aria-hidden="true">🇫🇷</span> France</a>
     </nav>
   </div>
 </section>
@@ -988,7 +945,7 @@ img{display:block;max-width:100%}
     {"@type":"ListItem","position":2,"item":{"@type":"Recipe","name":"Jollof rice","recipeCuisine":"Nigerian","author":{"@type":"Person","name":"Tunde"},"url":"https://bitemate.io/nigeria/","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.4","bestRating":"10","ratingCount":"5012"}}},
     {"@type":"ListItem","position":3,"item":{"@type":"Recipe","name":"Ceviche","recipeCuisine":"Peruvian","author":{"@type":"Person","name":"Lucía"},"url":"https://bitemate.io/peru/","aggregateRating":{"@type":"AggregateRating","ratingValue":"8.9","bestRating":"10","ratingCount":"1884"}}},
     {"@type":"ListItem","position":4,"item":{"@type":"Recipe","name":"Cacio e pepe","recipeCuisine":"Italian","author":{"@type":"Person","name":"Marco"},"url":"https://bitemate.io/italy/","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.0","bestRating":"10","ratingCount":"3206"}}},
-    {"@type":"ListItem","position":5,"item":{"@type":"Recipe","name":"Dal makhani","recipeCuisine":"Indian","author":{"@type":"Person","name":"Priya"},"url":"https://bitemate.io/india/","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.2","bestRating":"10","ratingCount":"2768"}}},
+    {"@type":"ListItem","position":5,"item":{"@type":"Recipe","name":"Kimchi jjigae","recipeCuisine":"Korean","author":{"@type":"Person","name":"Jiwoo"},"url":"https://bitemate.io/south-korea/","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.1","bestRating":"10","ratingCount":"2955"}}},
     {"@type":"ListItem","position":6,"item":{"@type":"Recipe","name":"Tacos al pastor","recipeCuisine":"Mexican","author":{"@type":"Person","name":"Carlos"},"url":"https://bitemate.io/mexico/","aggregateRating":{"@type":"AggregateRating","ratingValue":"9.3","bestRating":"10","ratingCount":"4491"}}}
   ]
 }
@@ -1016,8 +973,8 @@ function initBitemateGlobe(){
 
   const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   const dotColor   = isDark ? 0xffffff : 0x1c1c1e;
-  const pinColor   = isDark ? 0x0a84ff : 0x007aff;
-  const glowColor  = isDark ? 0x0a84ff : 0x007aff;
+  const pinColor   = isDark ? 0xff8a3d : 0xff6a2c;
+  const glowColor  = isDark ? 0xff8a3d : 0xff6a2c;
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
